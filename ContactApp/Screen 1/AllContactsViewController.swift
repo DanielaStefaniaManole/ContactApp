@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AllContactsViewController.swift
 //  ContactApp
 //
 //  Created by Daniela Manole on 05.02.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class AllContactsViewController: UIViewController {
     let database = DatabaseHandler()
     var contacts = [Contact]()
     
