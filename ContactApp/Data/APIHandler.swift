@@ -16,7 +16,6 @@ class APIHandler {
         let session = URLSession.shared
         
         let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
-            print(response!)
             do {
                 let model = try JSONDecoder().decode([ContactServerModel].self, from: data!)
                 model.forEach { contact in
