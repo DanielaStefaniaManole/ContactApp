@@ -8,15 +8,6 @@
 import UIKit
 
 class AllContactsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell") as? ContactCell
-        cell?.contactNameLabel?.text = "Dani"
-        return cell!
-    }
     
     @IBOutlet weak private var addContactButton: UIButton!
     @IBOutlet weak private var tableView: UITableView!
@@ -26,28 +17,20 @@ class AllContactsViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //database.deleteAllData(Contact.self)
-        APIHandler.shared.syncContacts() {
-
-        }
+//        database.deleteAllData(Contact.self)  // for deleting all entries
+//        APIHandler.shared.syncContacts() {    // called just once to store data in cache
+//
+//        }
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        let nib = UINib(nibName: "ContactCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "ContactCell")
-        
-        tableView.tableFooterView = UIView(frame: .zero)
+        tableView.selectionFollowsFocus = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         //fetching data from Core Data everytime we open the screen
         contacts = database.fetch(Contact.self)
-        contacts.forEach { contact in
-            print(contact.id)
-        }
         
         setupUI()
     }
@@ -57,14 +40,27 @@ class AllContactsViewController: UIViewController, UITableViewDelegate, UITableV
         addContactButton.layer.cornerRadius = 7
         addContactButton.layer.borderWidth = 2
         addContactButton.layer.borderColor = UIColor(named: "Background")?.cgColor
+        
+        addContactButton.addTarget(self, action: #selector(addContactScreen), for: .touchUpInside)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        //database.deleteAllData(Contact.self)
+    @objc func addContactScreen(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "ContactDetailsViewController", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ContactDetails")
+        vc.modalPresentationStyle = .fullScreen
+        vc.isModalInPresentation = true
+        self.present(vc, animated: true)
     }
-}
-
-extension AllContactsViewController: UIScrollViewDelegate {
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contacts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell") as? ContactCell
+        cell?.setup(element: contacts[indexPath.row])
+        cell?.selectionStyle = .none
+        cell?.viewDetailsButton.addTarget(self, action: #selector(addContactScreen), for: .touchUpInside)
+        return cell!
+    }
 }

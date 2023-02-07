@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A156D072992599D0036C734 /* ContactDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A156D062992599D0036C734 /* ContactDetailsViewController.storyboard */; };
+		1A156D0929929CAF0036C734 /* ContactDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A156D0829929CAF0036C734 /* ContactDetailsViewModel.swift */; };
 		1A8A648B2991B47500F64A6A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A8A648A2991B47500F64A6A /* Colors.xcassets */; };
 		1A8A648D2991B6FB00F64A6A /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A648C2991B6FB00F64A6A /* ContactCell.swift */; };
 		1A8EFED82990153C00640F9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8EFED72990153C00640F9B /* AppDelegate.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A156D062992599D0036C734 /* ContactDetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactDetailsViewController.storyboard; sourceTree = "<group>"; };
+		1A156D0829929CAF0036C734 /* ContactDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewModel.swift; sourceTree = "<group>"; };
 		1A8A648A2991B47500F64A6A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		1A8A648C2991B6FB00F64A6A /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		1A8EFED42990153C00640F9B /* ContactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				1A8EFEFB29901A5800640F9B /* ContactDetailsViewController.swift */,
+				1A156D062992599D0036C734 /* ContactDetailsViewController.storyboard */,
+				1A156D0829929CAF0036C734 /* ContactDetailsViewModel.swift */,
 			);
 			path = "Screen 2";
 			sourceTree = "<group>";
@@ -180,6 +186,7 @@
 				1A8A648B2991B47500F64A6A /* Colors.xcassets in Resources */,
 				1A8EFEE42990153D00640F9B /* Images.xcassets in Resources */,
 				1A8EFEDF2990153C00640F9B /* AllContactsViewController.storyboard in Resources */,
+				1A156D072992599D0036C734 /* ContactDetailsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +199,7 @@
 			files = (
 				1A8EFEFC29901A5800640F9B /* ContactDetailsViewController.swift in Sources */,
 				1A8EFEF1299015B500640F9B /* Contact+CoreDataProperties.swift in Sources */,
+				1A156D0929929CAF0036C734 /* ContactDetailsViewModel.swift in Sources */,
 				1A8EFEE22990153C00640F9B /* ContactApp.xcdatamodeld in Sources */,
 				1A8EFEDC2990153C00640F9B /* AllContactsViewController.swift in Sources */,
 				1A8EFEF7299015FC00640F9B /* DatabaseHandler.swift in Sources */,
